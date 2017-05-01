@@ -1,6 +1,174 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.kushal</groupId>
-  <artifactId>OrcToText</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.kushal</groupId>
+	<artifactId>OrcToText</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>OrcToText</name>
+	<properties>
+		<apache.hive.version>1.1.0-cdh5.5.2</apache.hive.version>
+		<apache.hadoop-core.version>2.6.0-mr1-cdh5.5.2</apache.hadoop-core.version>
+		<apache.hadoop.version>2.6.0-cdh5.5.2</apache.hadoop.version>
+		<apache.hive.version>1.1.0-cdh5.5.2</apache.hive.version>
+		<thrift.libfb303.version>0.9.0</thrift.libfb303.version>
+		<thrift.libthrift.version>0.9.0-cdh5-2</thrift.libthrift.version>
+		<apache.hcatalog-core.version>0.11</apache.hcatalog-core.version>
+		<!-- <common.beanutils.version>1.8.3</common.beanutils.version> <commons.config.version>1.6</commons.config.version> 
+			<commons.logging.version>1.1.1</commons.logging.version> -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<url>http://maven.apache.org</url>
+	
+		<repositories>
+		<repository>
+			<id>cloudera-repo-releases</id>
+			<url>https://repository.cloudera.com/artifactory/repo/</url>
+		</repository>
+		<repository>
+			<id>m2.java.net</id>
+			<name>Java.net Maven 2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+<!-- 		<repository>
+			<id>conjars</id>
+			<name>Concurrent Conjars repository</name>
+			<url>http://conjars.org/repo</url>
+			<layout>default</layout>
+		</repository> -->
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>${apache.hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>${apache.hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>${apache.hadoop-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-hdfs</artifactId>
+			<version>${apache.hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>${apache.hadoop.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-jdbc</artifactId>
+			<version>${apache.hive.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hive </groupId>
+			<artifactId>hive-metastore</artifactId>
+			<version>${apache.hive.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hcatalog</groupId>
+			<artifactId>hcatalog-core</artifactId>
+			<version>${apache.hcatalog-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hive </groupId>
+			<artifactId>hive-common</artifactId>
+			<version>${apache.hive.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hive </groupId>
+			<artifactId>hive-serde</artifactId>
+			<version>${apache.hive.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hive </groupId>
+			<artifactId>hive-service</artifactId>
+			<version>${apache.hive.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hive </groupId>
+			<artifactId>hive-exec</artifactId>
+			<version>${apache.hive.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.thrift</groupId>
+			<artifactId>libfb303</artifactId>
+			<version>${thrift.libfb303.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.thrift</groupId>
+			<artifactId>libthrift</artifactId>
+			<version>${thrift.libthrift.version}</version>
+			<type>pom</type>
+		</dependency>
+		<!-- <dependency> <groupId>commons-beanutils</groupId> <artifactId>commons-beanutils</artifactId> 
+			<version>${common.beanutils.version}</version> </dependency> <dependency> 
+			<groupId>commons-configuration</groupId> <artifactId>commons-configuration</artifactId> 
+			<version>${commons.config.version}</version> </dependency> <dependency> <groupId>commons-logging</groupId> 
+			<artifactId>commons-logging</artifactId> <version>${commons.logging.version}</version> 
+			</dependency> -->
+		<dependency>
+			<groupId>org.apache.hive.hcatalog</groupId>
+			<artifactId>hive-hcatalog-core</artifactId>
+			<version>1.1.0-cdh5.5.2</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.mockito</groupId> <artifactId>mockito-all</artifactId> 
+			<version>1.9.5</version> </dependency> <dependency> <groupId>junit</groupId> 
+			<artifactId>junit</artifactId> <version>4.4</version> </dependency> -->
+		<dependency>
+			<groupId>org.apache.orc</groupId>
+			<artifactId>orc-mapreduce</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerArgs>
+						<arg>-Xlint:unchecked</arg>
+					</compilerArgs>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins </groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<projectNameTemplate>
+						${project.artifactId}
+					</projectNameTemplate>
+					<buildOutputDirectory>
+						eclipse-classes
+					</buildOutputDirectory>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
